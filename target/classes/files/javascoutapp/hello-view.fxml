@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="files.javascoutapp.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
 
-    <TextField fx:id="searchField" promptText="Enter search term" onKeyReleased="#handleKeyRelease"/>
-    <Label fx:id="searchResult"/>
+<GridPane xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="10" vgap="10" fx:controller="files.javascoutapp.HelloController">
+    <!-- First column: Search bar -->
+    <VBox GridPane.columnIndex="0">
+        <TextField fx:id="searchField" promptText="Enter player name" />
+        <Button text="Search" onAction="#onSearchClick" />
+    </VBox>
 
-    <Button text="Search" onAction="#handleSearch"/>
-</VBox>
+    <!-- Second column: Player stats -->
+    <VBox GridPane.columnIndex="1">
+        <Label text="Player ID:" />
+        <Label fx:id="idLabel" visible="false" />
+        <Label text="Player API ID:" />
+        <Label fx:id="playerApiIdLabel" visible="false" />
+        <Label text="Birthday:" />
+        <Label fx:id="birthdayLabel" visible="false" />
+        <Label text="Height:" />
+        <Label fx:id="heightLabel" visible="false" />
+        <Label text="Weight:" />
+        <Label fx:id="weightLabel" visible="false" />
+    </VBox>
+</GridPane>

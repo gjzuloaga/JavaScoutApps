@@ -1,12 +1,15 @@
 package files.javascoutapp;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DatabaseManager {
     private Connection connection;
@@ -28,8 +31,8 @@ public class DatabaseManager {
         List<String> playerNames = new ArrayList<>();
 
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT player_name FROM Player");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT player_name FROM Player");
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
                 String playerName = resultSet.getString("player_name");
@@ -37,12 +40,35 @@ public class DatabaseManager {
             }
 
             resultSet.close();
-            statement.close();
+            preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return playerNames;
+    }
+
+    public Map<String, String> getPlayerStats(String playerName) {
+        Map<String, String> playerStats = new HashMap<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT id, player_api_id, birthday, height, weight FROM Player WHERE player_name = ?");
+            preparedStatement.setString(1, playerName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                playerStats.put("ID", resultSet.getString("id"));
+                playerStats.put("Player API ID", resultSet.getString("player_api_id"));
+                playerStats.put("Birthday", resultSet.getString("birthday"));
+                playerStats.put("Height", resultSet.getString("height"));
+                playerStats.put("Weight", resultSet.getString("weight"));
+
+                resultSet.close();
+                preparedStatement.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return playerStats;
     }
 
     public void disconnect() {
