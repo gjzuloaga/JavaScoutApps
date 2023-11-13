@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 import java.util.List;
 import java.util.Map;
@@ -30,6 +31,19 @@ public class HelloController {
 
     @FXML
     private Label weightLabel;
+
+    @FXML
+    private Label dribblingLabel;
+
+    @FXML
+    private Label shortPassLabel;
+
+    @FXML
+    private Label longPassLabel;
+
+    @FXML
+    private ImageView playerImageView;
+
 
     private ObservableList<String> suggestions;
 
@@ -76,20 +90,32 @@ public class HelloController {
 
     private void displayPlayerStats(Map<String, String> playerStats) {
         idLabel.setText(playerStats.get("ID"));
-        playerApiIdLabel.setText(playerStats.get("Player API ID"));
+       // playerApiIdLabel.setText(playerStats.get("Player API ID"));
         birthdayLabel.setText(playerStats.get("Birthday"));
         heightLabel.setText(playerStats.get("Height"));
         weightLabel.setText(playerStats.get("Weight"));
+        // Print the retrieved values to the console for debugging
+        System.out.println("Dribbling: " + playerStats.get("dribbling"));
+        System.out.println("Long Pass: " + playerStats.get("long_passing"));
+        System.out.println("Short Pass: " + playerStats.get("short_passing"));
+        System.out.println("Birthday: " + playerStats.get("Birthday"));
 
+        // Set the values for the new labels
+        dribblingLabel.setText(playerStats.get("dribbling"));
+        longPassLabel.setText(playerStats.get("long_passing"));
+        shortPassLabel.setText(playerStats.get("short_passing"));
+        
         // Set the player stats labels to be visible when displaying the stats
         idLabel.setVisible(true);
-        playerApiIdLabel.setVisible(true);
+       // playerApiIdLabel.setVisible(true);
         birthdayLabel.setVisible(true);
         heightLabel.setVisible(true);
         weightLabel.setVisible(true);
+        dribblingLabel.setVisible(true);
+        longPassLabel.setVisible(true);
+        shortPassLabel.setVisible(true);
 
     }
-
     private void displayErrorMessage(String message) {
         // Handle displaying an error message in your UI
     }

@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
     @Override
 
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("JavaFX Autocomplete Search Bar");
+        primaryStage.setTitle("Java Scouting App");
 
         // Create an instance of DatabaseManager and connect to the database
         DatabaseManager databaseManager = new DatabaseManager();
@@ -36,17 +36,18 @@ public class HelloApplication extends Application {
 
         // Create a scene and set it on the stage
         // Create a scene and set it on the stage
-        Scene scene = new Scene(root, 500, 200); // Set your preferred width and height
+        Scene scene = new Scene(root, 400, 420); // Set your preferred width and height
         primaryStage.setScene(scene);
 
         // Set the minimum and maximum dimensions to make the window fixed
-        primaryStage.setMinWidth(500);
+        primaryStage.setMinWidth(200);
         primaryStage.setMaxWidth(500);
-        primaryStage.setMinHeight(300);
-        primaryStage.setMaxHeight(300);
+        primaryStage.setMaxHeight(400);
+
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        //primaryStage.setResizable(false);
         // Disconnect from the database when the application is closed
         primaryStage.setOnCloseRequest(event -> databaseManager.disconnect());
     }
