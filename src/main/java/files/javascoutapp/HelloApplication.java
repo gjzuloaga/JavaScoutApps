@@ -36,7 +36,7 @@ public class HelloApplication extends Application {
 
         // Create a scene and set it on the stage
         // Create a scene and set it on the stage
-        Scene scene = new Scene(root, 400, 420); // Set your preferred width and height
+        Scene scene = new Scene(root, 400, 370); // Set your preferred width and height
         primaryStage.setScene(scene);
 
         // Set the minimum and maximum dimensions to make the window fixed

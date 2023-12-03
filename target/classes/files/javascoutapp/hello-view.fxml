@@ -12,37 +12,55 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane alignment="CENTER" hgap="10" prefHeight="340.0" prefWidth="418.0" vgap="10" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="files.javascoutapp.HelloController">
+<GridPane alignment="CENTER" hgap="10" prefHeight="340.0" prefWidth="418.0" style="-fx-background-color: #424242;" vgap="10" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="files.javascoutapp.HelloController">
+    <!-- Title -->
+    <Label text="Striker/Winger Scouting App" style="-fx-font-size: 18; -fx-text-fill: WHITE;" GridPane.columnSpan="2" alignment="CENTER" />
+
     <!-- First column: Search bar -->
     <HBox spacing="10" GridPane.rowIndex="3">
         <VBox>
-            <TextField fx:id="searchField" promptText="Enter player name" />
-            <Button onAction="#onSearchClick" text="Search" />
+            <TextField fx:id="searchField" promptText="Enter player name" style="-fx-background-color: #303030; -fx-text-fill: WHITE;" />
+            <Button onAction="#onSearchClick" style="-fx-background-color: #white;" text="Search" />
             <ImageView fx:id="playerImageView">
                 <image>
-                    <Image url="@Images/pulisic.png" />
+                    <Image url="@Images/Eden Hazard.png" />
                 </image>
             </ImageView>
+            <Label fx:id="enteredNameLabel" textFill="WHITE" text="${controller.playerName}" />
+           <Label text="Potential Rating:" textFill="WHITE" />
+            <Label fx:id="potentialLabel" visible="false" />
         </VBox>
     </HBox>
 
     <!-- Second column: Player stats -->
-    <VBox prefHeight="219.0" prefWidth="211.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-        <Label text="Player ID:" />
+    <VBox prefHeight="273.0" prefWidth="211.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Label text="Player ID:" textFill="WHITE" />
         <Label fx:id="idLabel" visible="false" />
 
-        <Label text="Birthday:" />
+        <Label text="Birthday:" textFill="WHITE" />
         <Label fx:id="birthdayLabel" visible="false" />
-        <Label text="Height:" />
+
+        <Label text="Height:" textFill="WHITE" />
         <Label fx:id="heightLabel" visible="false" />
-        <Label text="Weight:" />
+
+        <Label text="Weight:" textFill="WHITE" />
         <Label fx:id="weightLabel" visible="false" />
-        <Label text="Dribble success rate:" />
-        <Label fx:id="dribblingLabel" visible="false" />
-        <Label text="Long Pass Accuracy:" />
+
+
+
+        <Label text="Long Pass Accuracy:" textFill="WHITE" />
         <Label fx:id="longPassLabel" visible="false" />
-        <Label text="Short Pass Accuracy:" />
+
+        <Label text="Short Pass Accuracy:" textFill="WHITE" />
         <Label fx:id="shortPassLabel" visible="false" />
+
+        <Label text="Take-on success rate:" textFill="WHITE" />
+        <Label fx:id="dribblingLabel" visible="false" />
+
+        <Label text="Successful carries:" textFill="WHITE" />
+        <Label fx:id="ballControlLabel" visible="false" />
+
+
     </VBox>
 
     <AmbientLight color="CHARTREUSE" lightOn="true" GridPane.rowIndex="3" />
@@ -52,8 +70,8 @@
     </columnConstraints>
     <rowConstraints>
         <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
     </rowConstraints>
 </GridPane>
