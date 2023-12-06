@@ -6,6 +6,9 @@ Some examples down below of sample output Potential Rating also explained in the
 - **User-Friendly Interface:** Intuitive and easy-to-use JavaFX GUI for efficient scouting operations.
 
 - **Data Visualization:** View and analyze scouting data through percentages to better visualize it.
+-  **Scouting Value:** Based on data the app is able to quantify the value of a player in a scouting sense .
+
+
 
 ![Screenshot 2023-12-02 230539](https://github.com/gjzuloaga/JavaScoutApps/assets/119768381/98b3f942-9977-42aa-8558-041b3fb85a33)
 
