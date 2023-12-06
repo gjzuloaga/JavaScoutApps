@@ -1,6 +1,11 @@
-# JavaFX Scouting App 🚀🤖
+# JavaFX Scouting App 
 App quantifies the real value of a player from a database and gives them a score and how valuable they are recruitment wise: takes into account: age,projection/potential,position and performance.Most of the information it's compiled from 2017/2018 season.
 Some examples down below of sample output Potential Rating also explained in the grid.
+## Features
+
+- **User-Friendly Interface:** Intuitive and easy-to-use JavaFX GUI for efficient scouting operations.
+
+- **Data Visualization:** View and analyze scouting data through percentages to better visualize it.
 
 ![Screenshot 2023-12-02 230539](https://github.com/gjzuloaga/JavaScoutApps/assets/119768381/98b3f942-9977-42aa-8558-041b3fb85a33)
 
